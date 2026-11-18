@@ -8,7 +8,8 @@
 /* —— body + fonts —— */
 body {
   font-family: "Montserrat", Arial, Helvetica, sans-serif;
-  color: #333;
+  color: #111111;
+  background: #fbfaf8;
   display: flex;
   justify-content: center;
 }
@@ -24,6 +25,14 @@ body {
   padding-top: 50px;
 }
 
+.site-logo {
+  display: block;
+  width: 180px;
+  max-width: 60%;
+  height: auto;
+  margin: 0 auto 16px;
+}
+
 .site-title {
   font-size: 22px;
   font-weight: 500;
@@ -35,29 +44,92 @@ body {
   margin: 40px 0;
 }
 
+.chat-tabs {
+  display: flex;
+  gap: 8px;
+  border-bottom: 1px solid #c7a86a;
+}
+
+.chat-tab {
+  padding: 12px 16px;
+  border: 1px solid transparent;
+  border-bottom: 0;
+  background: transparent;
+  color: #111111;
+  font: inherit;
+  cursor: pointer;
+}
+
+.chat-tab.active {
+  border-color: #c7a86a;
+  background: #ffffff;
+  color: #7a6a43;
+}
+
+.chat-tab:focus-visible {
+  outline: 2px solid #111111;
+  outline-offset: 2px;
+}
+
+.tab-panel[hidden] {
+  display: none;
+}
+
 .chat-window {
   height: 360px;
-  border: 1px solid #000;
+  border: 1px solid #c7a86a;
   padding: 20px;
   font-size: 18px;
   line-height: 1.5;
   overflow-y: auto;
-  background: #fafafa;
+  background: #ffffff;
   white-space: pre-line;
 }
 
 /* messages */
 .msg {
+  width: fit-content;
+  max-width: 85%;
+  padding: 12px 16px;
   margin-bottom: 14px;
   line-height: 1.5;
+  overflow-wrap: anywhere;
+  white-space: pre-wrap;
+  border-radius: 16px;
 }
 
 .msg.user {
-  color: #000;
+  margin-left: auto;
+  color: #ffffff;
+  background: #111111;
+  border: 1px solid #c7a86a;
+  border-bottom-right-radius: 4px;
 }
 
 .msg.ai {
-  color: #666666;
+  margin-right: auto;
+  color: #7a6a43;
+  background: #fbfaf8;
+  border: 1px solid #c7a86a;
+  border-bottom-left-radius: 4px;
+}
+
+.history-entry {
+  margin-bottom: 18px;
+  overflow-wrap: anywhere;
+}
+
+.history-role {
+  display: block;
+  margin-bottom: 4px;
+  font-size: 13px;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.04em;
+}
+
+.history-entry.assistant .history-role {
+  color: #7a6a43;
 }
 
 /* input row */
@@ -70,19 +142,20 @@ body {
 .chat-form input {
   flex: 1;
   padding: 12px;
-  border: 1px solid #ccc;
+  border: 1px solid #c7a86a;
+  background: #ffffff;
   font-size: 18px;
 }
 
 .chat-form input:focus {
-  outline: 2px solid #000;
+  outline: 2px solid #111111;
   outline-offset: 2px;
 }
 
 .chat-form button {
   font-size: 18px;
-  background: #000;
-  color: #fff;
+  background: #111111;
+  color: #d8bd78;
   border: none;
   padding: 12px;
   width: 48px;
@@ -91,7 +164,7 @@ body {
   align-items: center;
   justify-content: center;
   cursor: pointer;
-  transition: background 0.3s;
+  transition: background 0.3s, color 0.3s;
 }
 
 .chat-form button .material-icons {
@@ -99,11 +172,12 @@ body {
 }
 
 .chat-form button:hover {
-  background: #666666;
+  background: #c7a86a;
+  color: #111111;
 }
 
 .chat-form button:focus {
-  outline: 2px solid #000;
+  outline: 2px solid #c7a86a;
   outline-offset: 2px;
 }
 
@@ -125,7 +199,7 @@ body {
   margin: 60px 0 40px;
   text-align: center;
   font-size: 14px;
-  color: #666;
+  color: #7a6a43;
 }
 
 .site-footer nav {
@@ -134,10 +208,10 @@ body {
 
 .site-footer a {
   margin: 0 8px;
-  color: #000;
+  color: #111111;
   text-decoration: none;
 }
 
 .site-footer a:hover {
-  color: #666666;
+  color: #a98c4f;
 }

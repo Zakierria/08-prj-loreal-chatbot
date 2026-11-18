@@ -19,31 +19,73 @@
     <div class="page-wrapper">
       <!------- Header / Branding ------->
       <header class="site-header">
+        <img
+          src="img/loreal-logo.png"
+          alt="L'Oreal"
+          class="site-logo"
+        />
         <h1 class="site-title">Smart Product Advisor</h1>
       </header>
 
       <!------- Chat Area ------->
       <main>
         <section class="chatbox">
-          <div id="chatWindow" class="chat-window">
-            <!-- messages will be appended here via JS -->
+          <div class="chat-tabs" role="tablist" aria-label="Chat views">
+            <button
+              id="chatTab"
+              class="chat-tab active"
+              type="button"
+              role="tab"
+              aria-selected="true"
+              aria-controls="chatPanel"
+              tabindex="0"
+            >
+              Chat
+            </button>
+            <button
+              id="historyTab"
+              class="chat-tab"
+              type="button"
+              role="tab"
+              aria-selected="false"
+              aria-controls="historyPanel"
+              tabindex="-1"
+            >
+              Conversation History
+            </button>
           </div>
 
-          <form id="chatForm" class="chat-form">
-            <label for="userInput" class="visually-hidden">Message</label>
-            <input
-              id="userInput"
-              name="userInput"
-              type="text"
-              placeholder="Ask me about products or routines…"
-              autocomplete="off"
-              required
-            />
-            <button type="submit" id="sendBtn">
-              <span class="material-icons">send</span>
-              <span class="visually-hidden">Send</span>
-            </button>
-          </form>
+          <div id="chatPanel" class="tab-panel" role="tabpanel" aria-labelledby="chatTab">
+            <div id="chatWindow" class="chat-window" aria-live="polite">
+              <!-- messages will be appended here via JS -->
+            </div>
+
+            <form id="chatForm" class="chat-form">
+              <label for="userInput" class="visually-hidden">Message</label>
+              <input
+                id="userInput"
+                name="userInput"
+                type="text"
+                placeholder="Ask me about products or routines…"
+                autocomplete="off"
+                required
+              />
+              <button type="submit" id="sendBtn">
+                <span class="material-icons">send</span>
+                <span class="visually-hidden">Send</span>
+              </button>
+            </form>
+          </div>
+
+          <div
+            id="historyPanel"
+            class="tab-panel"
+            role="tabpanel"
+            aria-labelledby="historyTab"
+            hidden
+          >
+            <div id="historyWindow" class="chat-window history-window" aria-live="polite"></div>
+          </div>
         </section>
       </main>
 
